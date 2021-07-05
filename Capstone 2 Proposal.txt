@@ -1,0 +1,23 @@
+﻿Capstone 2 Proposal
+
+
+1. For this Capstone project, I plan to use the PERN stack:
+   1. PostgreSQL - Object-Relational Database
+   2. Express - Back-End Framework
+   3. React - Front-End Framework/Library
+   4. Node.js - JavaScript runtime environment
+2. This time, I will be a bit more focused on the front-end UI; however, in the end, I feel like this project will be an evenly focused full-stack application.
+3. This will strictly be a website. For now… perhaps a mobile version can be arranged sometime in the future.
+4. My goal for this project is to create an easy-to-navigate website that gives the visitor the ability to search their upcoming destination and learn of their particular location’s travel “need-to-knows”, such as: health & vaccines, weather, visa requirements, currency, electric sockets, and language.
+5. I think the demographic of users visiting my site will vary. They could be children (who are more “tech savvy” than their parents), pre-teens looking to spend a weekend at the coast, young adults wanting to travel the world, or retirees searching for their next hot spot.
+6. The API I plan on using is https://travelbriefing.org/api
+7. Brief outline of approach to creating my project:
+   1. Right now, my database schema only consists of “users”
+   2. One thing I’m concerned with my API is whether the information is accurate. I won’t know until I test the endpoint. The API website is a one-pager with limited information, so I’m hoping that means it’s very easy to use
+   3. Sensitive information I’ll need to secure would include the email and password of the user
+   4. Functionality for now includes ability signup/login and search for a specific location and view its respective travel information. Planning to implement OAuth to signup/login functionality, as well as adding autocomplete to the search bar
+   5. Any visitor can search for and view location information, but if you signup/login (using OAuth), you can save the information/bookmark it for later (hoping to add this functionality).
+   6. At this time, my site is fairly simple functionality-wise. I have a few stretch goals, including:
+      1. A possible note-adding feature
+      2. Sending information from site to user email or phone
+      3. Sharing information with other users
