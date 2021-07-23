@@ -1,22 +1,16 @@
 import React from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import { BrowserRouter } from "react-router-dom";
 import './App.css';
 
-import Home from "./Home";
-import Eat from "./Eat";
+import Navbar from "./Navbar";
+import Routes from "./Routes";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar></Navbar>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route exact path='/eat'>
-          <Eat />
-        </Route>
+        <Navbar />
+        <Routes />
       </BrowserRouter>
     </div>
   );
