@@ -15,7 +15,7 @@ const Routes = () => {
                 <Route exact path="/locations">
                     <Locations />
                 </Route>
-                <Route path="/locations/:id">
+                <Route path="/location/:id">
                     <LocationInfo />
                 </Route>
                 <Redirect to="/" />

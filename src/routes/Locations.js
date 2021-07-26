@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import LocInfoApi from "../Api";
 import SearchForm from "../forms/SearchForm";
-import LocationCard from "./LocationCard";
+import LocationCards from "./LocationCards";
 
 const Locations = () => {
     console.debug("LocationsList");
@@ -10,7 +10,6 @@ const Locations = () => {
 
     async function search(name) {
         let locations = await LocInfoApi.getLocations(name);
-        console.log(locations);
         setLocations(locations);
     }
 
@@ -23,7 +22,7 @@ const Locations = () => {
             <SearchForm search={search} />
 
             {locations.map(l => (
-                <LocationCard
+                <LocationCards
                     key={l.id}
                     id={l.id}
                     name={l.attributes.name} />

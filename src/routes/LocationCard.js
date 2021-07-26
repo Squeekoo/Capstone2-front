@@ -1,18 +1,22 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
-const LocationCard = ({ id, name }) => {
-    console.debug("LocationCard", id, name);
+const LocationCard = ({ id, covid, longName, population }) => {
+    console.debug("LocationCard",);
 
     return (
-        <div className="LocationCard col-md-8 offset-md-2">
-            <Link className="LocationCard card" to={`/locations/${id}`}>
-                <div className="card-body">
-                    <h4 className="card-title text-dark">
-                        {name}
-                    </h4>
-                </div>
-            </Link>
+        <div id={id} className="LocationCard card">
+
+            <div className="card-header">
+                <b>{longName}</b>
+            </div>
+            <div className="card-body">
+                <h6 className="card-subtitle">
+                    <b><i>Population:</i></b> <i>{population}</i>
+                </h6>
+                <ul className="list-group list-group-flush">
+                    <li className="list-group-item"><b><i>Covid Level:</i></b> <i>{covid}</i></li>
+                </ul>
+            </div>
         </div>
     );
 }

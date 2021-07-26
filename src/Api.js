@@ -37,7 +37,7 @@ class LocInfoApi {
     }
 
     static async getLocationById(id) {
-        let response = await this.request(`locations/${id}`);
+        let response = await this.request(`location/${id}`);
         return response.data;
     }
 }
