@@ -21,21 +21,37 @@ const LocationInfo = () => {
         fetchLocation();
     }, [id]);
 
-    if (!location) return <h1>Loading...</h1>
+    if (!location) return <h1>Loading...</h1>;
 
-    let covidObj = location.attributes.covid;
+    let budgetObj = location.data.attributes.budget;
+    let cityBudget = Object.keys(budgetObj)[0];
+    let budget = budgetObj[cityBudget];
+
+    let covidObj = location.data.attributes.covid;
     let county = Object.keys(covidObj)[0];
     let covid = covidObj[county];
+
+    let safetyObj = location.data.attributes.safety;
+    let citySafety = Object.keys(safetyObj)[0];
+    let safety = safetyObj[citySafety];
 
     return (
         <div>
             <LocationCard
                 key={id}
                 id={id}
+                budget={budget.text}
+                budgetSubText={budget.subText}
+                budgetVal={budget.value}
                 covid={covid.text}
-                longName={location.attributes.long_name}
-                population={location.attributes.population}
-
+                covidVal={covid.value}
+                kayakCar={location.data.attributes.kayak_car_rental_url}
+                kayakLodging={location.data.attributes.kayak_lodgings_url}
+                longName={location.data.attributes.long_name}
+                population={location.data.attributes.population}
+                safety={safety.text}
+                safetySubText={safety.subText}
+                safetyVal={safety.value}
             />
         </div>
     )
