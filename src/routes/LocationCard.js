@@ -10,7 +10,9 @@ const LocationCard = ({ id, budget, budgetSubText, budgetVal, covid, covidVal, k
                 <b>{longName}</b>
             </div>
 
-            {/* <img className="card-img-top" src={photo} alt="Location" /> */}
+
+            <img className="card-img-top" src={photo} alt="Location" />
+
 
             <ul className="list-group list-group-flush">
                 <li className="list-group-item">
