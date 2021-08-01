@@ -1,0 +1,20 @@
+.Footer-img {
+  width: 200px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.Footer-link {
+  color: black;
+}
+
+.Footer-link:hover {
+  color: rgb(100, 100, 100);
+}
+.Footer-bot {
+  background-color: rgba(128, 128, 128, 0.123);
+}
+.Footer-bot:hover {
+  background-color: rgba(128, 128, 128, 0.438);
+  transition: 0.2s background-color;
+}

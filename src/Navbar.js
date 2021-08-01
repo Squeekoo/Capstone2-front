@@ -1,13 +1,23 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-const Navbar = () => {
+const NavBar = () => {
     return (
-        <nav>
-            <NavLink exact to="/">Home</NavLink>
-            <NavLink exact to="/locations">Locations</NavLink>
-        </nav>
-    )
+        <>
+            <Navbar bg="light" expand="lg">
+                <Container>
+                    <Navbar.Brand href="/">LocInfo</Navbar.Brand>
+                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                    <Navbar.Collapse id="basic-navbar-nav">
+                        <Nav className="me-auto">
+                            <Nav.Link href="/">Home</Nav.Link>
+                            <Nav.Link href="/locations">Search Locations</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </>
+    );
 }
 
-export default Navbar;
+export default NavBar;

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import LocInfoApi from "../Api";
 import LocationCard from "./LocationCard";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCompass } from "@fortawesome/free-solid-svg-icons";
+import "./LocationInfo.css";
 
 const LocationInfo = () => {
     const { id } = useParams();
@@ -21,7 +24,16 @@ const LocationInfo = () => {
         fetchLocation();
     }, [id]);
 
-    if (!location) return <h1>Loading...</h1>;
+    if (!location) return (
+        <h1>
+            <FontAwesomeIcon
+                icon={faCompass}
+                spin
+                size="6x"
+                className="LoadingIcon"
+            />
+        </h1>
+    );
 
     function findPhoto() {
         let cityPhotoRelationships = location.data.relationships;
@@ -56,19 +68,21 @@ const LocationInfo = () => {
             <LocationCard
                 key={id}
                 id={id}
-                budget={budget.text}
-                budgetSubText={budget.subText}
-                budgetVal={budget.value}
-                covid={covid.text}
-                covidVal={covid.value}
+                airBnb={location.data.attributes.airbnb_url}
+                budget={!budget ? "Currently unavailable" : budget.text}
+                budgetSubText={!budget ? "Currently unavailable" : budget.subText}
+                budgetVal={!budget ? "Currently unavailable" : budget.value}
+                covid={!covid ? "Currently unavailable" : covid.text}
+                covidVal={!covid ? "Currently unavailable" : covid.value}
                 kayakCar={location.data.attributes.kayak_car_rental_url}
                 kayakLodging={location.data.attributes.kayak_lodgings_url}
                 longName={location.data.attributes.long_name}
+                name={location.data.attributes.name}
                 photo={findPhoto()}
-                population={location.data.attributes.population}
-                safety={safety.text}
-                safetySubText={safety.subText}
-                safetyVal={safety.value}
+                population={location.data.attributes.population === 0 ? "Currently unavailable" : location.data.attributes.population}
+                safety={!safety ? "Currently unavailable" : safety.text}
+                safetySubText={!safety ? "Currently unavailable" : safety.subText}
+                safetyVal={!safety ? "Currently unavailable" : safety.value}
             />
         </div>
     )

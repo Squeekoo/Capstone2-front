@@ -14,21 +14,28 @@ const SearchForm = ({ search }) => {
     }
 
     return (
-        <div className="SearchForm-div">
-            <form className="SearchForm form-inline" onSubmit={handleSubmit}>
-                <input
-                    className="SearchForm-input form-control form-control-md"
-                    placeholder="Where are we off to today?"
-                    name="searchTerm"
-                    value={searchTerm}
-                    onChange={handleChange}
-                />
-
-                <button type="submit" className="btn btn-primary btn-md">Let's Go!</button>
+        <>
+            <form className="SearchForm form-inline mt-4 shadow-sm p-3 mb-5 bg-white rounded" onSubmit={handleSubmit}>
+                <div className="input-group">
+                    <input
+                        type="search"
+                        className="SearchForm-input form-control rounded"
+                        placeholder="Where are we off to today?"
+                        aria-label="Search"
+                        aria-describedby="search-addon"
+                        name="searchTerm"
+                        value={searchTerm}
+                        onChange={handleChange}
+                    />
+                    <button
+                        type="submit"
+                        className="btn btn-outline-dark">
+                        Let's Go!
+                    </button>
+                </div>
             </form>
-        </div>
-    )
-
+        </>
+    );
 }
 
 export default SearchForm;
