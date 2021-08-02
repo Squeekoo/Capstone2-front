@@ -19,6 +19,8 @@
   background-color: rgba(128, 128, 128, 0.123);
 }
 .Footer-bot:hover {
-  background-color: rgba(128, 128, 128, 0.438);
-  transition: 0.2s background-color;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.438),
+    rgba(218, 69, 198, 0.438)
+  );
 }

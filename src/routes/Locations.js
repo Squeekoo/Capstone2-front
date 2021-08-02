@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LocInfoApi from "../Api";
 import SearchForm from "../forms/SearchForm";
 import LocationCards from "./LocationCards";
@@ -13,20 +13,21 @@ import { faCompass } from "@fortawesome/free-solid-svg-icons";
 const Locations = () => {
     console.debug("LocationsList");
 
-    const [locations, setLocations] = useState(null);
-
-    useEffect(function getLocationsOnMount() {
-        console.debug("LocationsList useEffect getLocationsOnMount");
-        search();
-    }, []);
+    const [initialState, setInitialState] = useState(true);
+    const [locations, setLocations] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     /** Triggered by SearchForm submit and reloads locations. */
     async function search(name) {
+        setLoading(true);
+
         let locations = await LocInfoApi.getLocations(name);
         setLocations(locations);
+        setInitialState(false);
+        setLoading(false);
     }
 
-    if (!locations) return (
+    if (loading) return (
         <h1>
             <FontAwesomeIcon
                 icon={faCompass}
@@ -37,13 +38,16 @@ const Locations = () => {
         </h1>
     );
 
-
     return (
         <div className="LocationsList col-md-8 offset-md-2">
             <h1 className="mt-4">Search Locations</h1>
             <SearchForm search={search} />
 
-            {locations.length ? (
+            {(!initialState && !locations.length) && (
+                <h1>No locations found. Please try a different name.</h1>
+            )}
+
+            {locations.length > 0 && (
                 <div className="LocationsList-list">
                     {locations.map(l => (
                         <LocationCards
@@ -52,8 +56,6 @@ const Locations = () => {
                             name={l.attributes.name} />
                     ))}
                 </div>
-            ) : (
-                <h1>No locations found. Please try a different name.</h1>
             )}
         </div>
     );

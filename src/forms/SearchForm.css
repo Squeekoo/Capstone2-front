@@ -1,0 +1,9 @@
+.SearchForm {
+  background-color: #77777728;
+}
+
+.btn:hover {
+  background-color: black;
+  transition: 0.4s background-color;
+  cursor: pointer;
+}

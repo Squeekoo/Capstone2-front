@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SearchForm.css";
 
 const SearchForm = ({ search }) => {
     const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +16,7 @@ const SearchForm = ({ search }) => {
 
     return (
         <>
-            <form className="SearchForm form-inline mt-4 shadow-sm p-3 mb-5 bg-white rounded" onSubmit={handleSubmit}>
+            <form className="SearchForm form-inline mt-4 shadow-sm p-3 mb-5 rounded" onSubmit={handleSubmit}>
                 <div className="input-group">
                     <input
                         type="search"
