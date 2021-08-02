@@ -33,7 +33,7 @@ const FooterBar = () => {
                     </div>
                     <div className="Footer-bot col-md-12 rounded">
                         <a href="https://www.roadgoat.com/">
-                            <img src={RoadGoatImg} className="Footer-img" />
+                            <img className="Footer-img" src={RoadGoatImg} alt="Powered by RoadGoat" />
                         </a>
                     </div>
                 </div>
