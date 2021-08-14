@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const REACT_APP_BASE_URL = "http://localhost:3001";
+const REACT_APP_BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:3001";
 
 const access_key = process.env.API_ACCESS_KEY;
 const secret_key = process.env.API_SECRET_KEY;
